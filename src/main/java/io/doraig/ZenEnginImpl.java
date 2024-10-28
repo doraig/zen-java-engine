@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 class ZenEnginImpl  implements IZenEngine {
 
+    @SuppressWarnings("unused")
     String jniStatus;
 
     @Override
@@ -22,10 +23,12 @@ class ZenEnginImpl  implements IZenEngine {
         );
     }
 
+    @SuppressWarnings("unused")
     private native ArrayList<String> testJniCall(ArrayList<Integer> list, int value);
 
     private native String jniEvaluate(String request, String ruleFile);
 
+    @SuppressWarnings("unused")
     public int javaAdd(int i, int u) {
         return i + u;
     }
