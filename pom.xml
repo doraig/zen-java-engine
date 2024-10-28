@@ -80,7 +80,7 @@
                 </executions>
                 <configuration>
                     <descriptorRefs>
-                        <descriptorRef>jwd</descriptorRef>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                 </configuration>
             </plugin>
