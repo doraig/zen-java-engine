@@ -17,7 +17,7 @@
     <scm>
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>https://github.com/doraig/zen-java-engine.git</url>
+        <url>https://doraig@github.com/doraig/zen-java-engine.git</url>
         <tag>HEAD</tag>
     </scm>
     <dependencyManagement>
