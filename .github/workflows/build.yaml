@@ -14,7 +14,7 @@ jobs:
             - os: macos-latest
               arch: "arm64"
             - os: macos-latest
-              arch: "x86_64"
+              arch: "arm64 universal2 x86_64"
             - os: windows-latest
               arch: "x86_64"
     runs-on: ${{matrix.os}}
