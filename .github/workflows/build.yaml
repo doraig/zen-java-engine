@@ -11,7 +11,8 @@ jobs:
           include:
             - os: ubuntu-latest
               arch: "x86_64"
-            - os: macos-latest
+            - os: macos-13
+              arch: "x86_64"
             - os: macos-latest
               arch: "arm64"
             - os: windows-latest
