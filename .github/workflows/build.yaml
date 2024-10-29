@@ -12,7 +12,7 @@ jobs:
             - os: ubuntu-latest
               arch: "x86_64"
             - os: macos-latest
-              arch: "arm64 universal2 x86_64"
+              arch: "arm64"
             - os: windows-latest
               arch: "x86_64"
     runs-on: ${{matrix.os}}
@@ -24,7 +24,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-          architecture: x64
       - name: Build with Maven
         run: mvn -B package --file pom.xml
       - run: mkdir staging && cp target/*.jar staging
