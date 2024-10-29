@@ -22,7 +22,7 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
       - run: mkdir staging && cp target/*.jar staging
-      - run: mkdir libs && cp -r target/classes/io/doraig/libs/* libs/
+      - run: mkdir -p io/doraig/libs && cp -r target/classes/io/doraig/libs/* io/doraig/libs/
       - uses: actions/upload-artifact@v4
         with:
           name: Package_${{matrix.os}}
@@ -30,7 +30,38 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Library_${{matrix.os}}
-          path: libs
+          path: io/doraig/libs
+  repackage:
+    name: "Repackage Jar"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JDK 11 for x64
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          architecture: x64
+      - uses: actions/download-artifact@v4
+        with:
+          name: Package_ubuntu-latest
+      - uses: actions/download-artifact@v4
+        with:
+          path: repackage
+          pattern: Library_*
+      - uses: actions/download-artifact@v4
+        with:
+          path: repackage
+          name: Package_ubuntu-latest
+      - name: Perform repackage
+        run: |
+          cd repackage
+          jar -uf *-jar-with-dependencies.jar /io/doraig/libs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Package
+          path: repackage
+
 
 
 
