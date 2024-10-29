@@ -8,7 +8,13 @@ jobs:
     name: "Build Jar"
     strategy:
         matrix:
-            os: [ubuntu-latest, macos-latest, windows-latest]
+          include:
+            - os: ubuntu-latest
+              arch: "x86_64"
+            - os: macos-latest
+              arch: "arm64 universal2 x86_64"
+            - os: windows-latest
+              arch: "x86_64"
     runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v4
