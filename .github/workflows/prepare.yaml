@@ -14,6 +14,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+      - name: Configure Git User
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
       - name: Build with Maven
         env:
           GITHUB_TOKEN: ${{ github.token }}
