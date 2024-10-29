@@ -52,7 +52,12 @@ jobs:
           name: Package_ubuntu-latest
       - name: Perform repackage
         run: |
-          cd repackage && mkdir -p io/doraig/libs && ls
+          cd repackage && mkdir -p io/doraig/libs && cp -r Library_*/* io/doraig/libs/
+          jar -uf *-jar-with-dependencies.jar /io/doraig/libs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Package
+          path: repackage
 
 
 
