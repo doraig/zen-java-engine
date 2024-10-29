@@ -22,10 +22,15 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
       - run: mkdir staging && cp target/*.jar staging
+      - run: mkdir libs && cp -r target/classes/io/doraig/libs/* library
       - uses: actions/upload-artifact@v4
         with:
           name: Package_${{matrix.os}}
           path: staging
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Library_${{matrix.os}}
+          path: library
 
 
 
