@@ -4,7 +4,7 @@
 
     <groupId>io.doraig</groupId>
     <artifactId>zen-java-engine</artifactId>
-    <version>1.5</version>
+    <version>1.6-SNAPSHOT</version>
 
     <description>
         This utility jar enables the JVM application to make rule evaluation call defined by
@@ -36,7 +36,7 @@
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
         <url>https://doraig@github.com/doraig/zen-java-engine.git</url>
-        <tag>zen-java-engine-1.5</tag>
+        <tag>zen-java-engine-1.2</tag>
     </scm>
     <dependencyManagement>
         <dependencies>
