@@ -62,11 +62,11 @@ jobs:
       - run: mkdir -p io/doraig/libs && cp -r target/classes/io/doraig/libs/* io/doraig/libs/
       - uses: actions/upload-artifact@v4
         with:
-          name: Package_ubuntu-latest_x86_64
+          name: Package_macos-latest_arm64
           path: staging
       - uses: actions/upload-artifact@v4
         with:
-          name: Library_ubuntu-latest_x86_64
+          name: Library_macos-latest_arm64
           path: io/doraig/libs
 #  repackage:
 #    name: "Repackage Jar"
