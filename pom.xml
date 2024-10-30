@@ -19,6 +19,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <developers>
+        <developer>
+            <id>doraig</id>
+            <name>gopiraj dorairaj</name>
+            <email>gopiraj@doraig.com</email>
+        </developer>
+    </developers>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
