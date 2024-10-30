@@ -190,14 +190,8 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <!--suppress UnresolvedMavenProperty -->
-                            <keyname>${gpg.keyname}</keyname>
-                            <!--suppress UnresolvedMavenProperty -->
-                            <passphraseServerId>${gpg.keyname}</passphraseServerId>
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
+                            <passphraseEnvName>MAVEN_GPG_PASSPHRASE</passphraseEnvName>
+                            <signer>bc</signer>
                         </configuration>
                     </execution>
                 </executions>

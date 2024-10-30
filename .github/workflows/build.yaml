@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
 env:
   RUST_BACKTRACE: 'full'
+  MAVEN_GPG_PASSPHRASE: ${{ secrets.PASS_PHARASE }}
+  MAVEN_GPG_KEY: ${{ secrets.SIGN_KEY }}
 jobs:
   build:
     name: "Build Jar"
@@ -48,6 +50,9 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+      - uses: s4u/maven-settings-action@v3.0.0
+        with:
+          servers: '[{"id": "central", "username": "${{ secrets.USER }}", "password": "${{ secrets.TOKEN }}"}]'
       - uses: actions/download-artifact@v4
         with:
           path: native-libs
@@ -57,7 +62,7 @@ jobs:
           cp -r native-libs/Library_*/*  native-libs/
           rm -rf native-libs/Library_*
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B deploy --file pom.xml
       - run: mkdir staging && cp target/*.jar staging
       - run: mkdir -p io/doraig/libs && cp -r target/classes/io/doraig/libs/* io/doraig/libs/
       - uses: actions/upload-artifact@v4
