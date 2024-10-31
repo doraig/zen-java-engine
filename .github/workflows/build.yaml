@@ -55,6 +55,7 @@ jobs:
         with:
           java-version: '8.0'
           distribution: 'temurin'
+          architecture: 'arm64'
       - uses: s4u/maven-settings-action@v3.0.0
         with:
           servers: '[{"id": "central", "username": "${{ secrets.USER }}", "password": "${{ secrets.TOKEN }}"}]'
