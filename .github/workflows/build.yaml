@@ -13,10 +13,10 @@ jobs:
           include:
             - os: macos-13
               arch: "x86_64"
-#            - os: ubuntu-latest
-#              arch: "x86_64"
-#            - os: windows-latest
-#              arch: "x86_64"
+            - os: ubuntu-latest
+              arch: "x86_64"
+            - os: windows-latest
+              arch: "x86_64"
     runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '8.0'
-          distribution: 'temurin'
+          distribution: 'zulu'
           architecture: 'arm64'
       - uses: s4u/maven-settings-action@v3.0.0
         with:
