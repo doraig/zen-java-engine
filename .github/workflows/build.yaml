@@ -41,7 +41,12 @@ jobs:
   build-and-include-nativelibs:
     name: "Build Jar and include previous native libraries"
     needs: build
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            arch: "arm64"
+    runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v4
       - uses: actions-rust-lang/setup-rust-toolchain@v1
