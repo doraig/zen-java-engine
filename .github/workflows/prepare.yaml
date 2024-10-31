@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
 env:
   RUST_BACKTRACE: 'full'
+  MAVEN_GPG_PASSPHRASE: ${{ secrets.PASS_PHARASE }}
+  MAVEN_GPG_KEY: ${{ secrets.SIGN_KEY }}
 jobs:
   build:
     name: "Prepare release"
